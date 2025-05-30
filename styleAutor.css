@@ -1,4 +1,4 @@
-#ladoALado{
+.ladoALado{
     display: flex;
     justify-content: space-evenly;
 }
@@ -8,6 +8,6 @@ img{
     width: 20%;
 }
 
-#texto{
+.texto{
     width: 60%;
 }
