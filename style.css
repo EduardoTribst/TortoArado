@@ -177,7 +177,7 @@ right connector from last child*/
 	color: #000;
 	border: 1px solid #94a0b4;
 }
-/*Connector styles on hover*/
+
 .tree li .child:hover+.parent::before,
 .tree li .child:hover+.parent .person+ul li::after,
 .tree li .parent .person:hover+ul li::after,
