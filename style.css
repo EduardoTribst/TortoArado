@@ -189,3 +189,67 @@ right connector from last child*/
 .tree li .parent .person:hover+ul ul::before {
 	border-color: #94a0b4;
 }
+
+/* CSS do rilex/ codigo da internet*/	
+:root{
+	--color-white: #fff;
+	--color-orange: rgba(252, 142, 39, 0.685);
+	--color-green: #496444;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	
+}
+.logo{
+	width: auto;
+	height: 80px;
+	margin-left: auto;
+}
+.header,
+.navigation_header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.header{
+	background-color: var(--color-white);
+	justify-content: space-between;
+	padding: 0 10%;
+	height: 6.5em;
+	box-shadow: 1px 1px 4px var(--color-orange);
+}
+.navigation_header{
+	gap: 3em;
+	z-index: 2;
+}
+.content{
+	padding-top: 5em;
+	text-align: center;
+	height: 100vh;
+	transition: 1s;
+}
+.navigation_header a{
+	text-decoration: none;
+	color: var(--color-orange);
+	transition: 1s;
+	font-weight: bold;
+}
+.navigation_header a:hover{
+	color: var(--color-white);
+}
+.active{
+	background: var(--color-green);
+	padding: 10px;
+	border-radius: 10px;
+}
+.btn_icon_header{
+	background: transparent;
+	border: none;
+	color: var(--color-white);
+	cursor: pointer;
+	display: none;
+}
