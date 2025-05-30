@@ -1,0 +1,13 @@
+#ladoALado{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img{
+    height: 100%;
+    width: 20%;
+}
+
+#texto{
+    width: 60%;
+}
