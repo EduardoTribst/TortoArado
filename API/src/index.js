@@ -92,7 +92,7 @@ app.get("/Post/Selecionar", async (req, res) => {
         var posts = await SelectPost()
         return res.status(200).json(posts)
     }catch(error){
-        return res.status(500).send("Erro no servidor ao buscar posts");
+        return res.status(500).send("Erro no servidor ao buscar posts: " + error.message);
     }
 })
 
