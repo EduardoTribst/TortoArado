@@ -1,9 +1,15 @@
 import { openDB } from "../configDB.js";
 
+export async function SelectPost() {
+    return openDB().then(db=>{
+        return db.all("SELECT * FROM Post")
+        .then(res=>res)
+    })
+}
 
-export async function InsertPost(post) {
+export async function InsertPost(titulo,conteudo,autor) {
     openDB().then(db => {
-        db.run("INSERT INTO Post (titulo, conteudo, autor) VALUES (?, ?, ?)", post.titulo, post.conteudo, post.autor);
+        db.run("INSERT INTO Post (titulo, conteudo, autor) VALUES (?, ?, ?)", titulo, conteudo,autor);
     })
 }
 
