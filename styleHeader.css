@@ -18,7 +18,7 @@ header h1 {
 }
 
 .divHeader {
-    background-color: #62844a;
+    background-color: #55684e;
     display: flex;
     flex-direction: row;
     width: 100;
@@ -28,3 +28,20 @@ header h1 {
     position: sticky;
     top: 0;
 }
+
+.btnVoltar {
+    border: none;
+    display: inline-block; 
+    padding: 8px 16px;
+    vertical-align: middle; 
+    overflow: hidden; 
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center; 
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 24px;
+}
+
+.hoverBotao:hover{color:#000;background-color: rgb(50, 71, 49)}
