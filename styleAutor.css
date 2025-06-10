@@ -1,3 +1,7 @@
+html {
+    background-color: beige;
+}
+
 .ladoALado{
     display: flex;
     justify-content: space-evenly;
@@ -10,4 +14,5 @@ img{
 
 .texto{
     width: 60%;
+    font-size: 24px;
 }
