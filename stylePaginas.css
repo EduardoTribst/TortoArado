@@ -1,5 +1,9 @@
 html {
     background-color: beige;
+    height: 100%;
+}
+body {
+    margin: 0;
 }
 
 .ladoALado{

@@ -1,0 +1,30 @@
+.divImagensHeader {
+    padding-top: 0.5rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.imagensHeader {
+    width: 4rem;
+    height: 4rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-left: 4rem;
+}
+
+.divHeader {
+    background-color: #62844a;
+    display: flex;
+    flex-direction: row;
+    width: 100;
+    height: 5rem;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
