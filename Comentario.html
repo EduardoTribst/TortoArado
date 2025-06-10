@@ -22,25 +22,39 @@
             </div>
     </header>
 
-    <div id="div">
-        <div class="divnadiv">
-            <label>Usuário:</label>
-            <input type="text" id="user" placeholder="Digite um nome de usuário">
+    <main>
+        <div id="div">
+            <div class="divnadiv">
+                <label>Usuário:</label>
+                <input type="text" id="user" placeholder="Digite um nome de usuário">
+            </div>
+            
+            <br>
+            <div class="divnadiv">
+                <label>Comentário:</label>
+                <textarea id="textAreaComentario" rows="6" cols="40" placeholder="Escreva seu comentário"></textarea>
+            </div>
+            
+            <button class="btnEnviar hoverBotao" onclick="criarComentario()">Enviar</button>
         </div>
         
-        <br>
-        <div class="divnadiv">
-            <label>Comentário:</label>
-            <textarea id="textAreaComentario" rows="6" cols="40" placeholder="Escreva seu comentário"></textarea>
+        <div class="divComentarios">
+            <div class="comentario">
+                <h3>
+                    Rodrigo
+                </h3>
+
+                <p>
+                    muito bom pessoal
+                </p>
+
+                <div id="likesPost">
+
+                </div>
+            </div>
         </div>
-        
-        <button class="btnEnviar hoverBotao" onclick="criarComentario()">Enviar</button>
-    </div>
+    </main>
     
-    <div class="divComentarios">
-
-    </div>
-
     <script src="jsRedirecionar.js"></script>
     <script src="jsComentarios.js"></script>
 </body>

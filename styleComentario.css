@@ -38,3 +38,19 @@
 #textAreaComentario {
     resize: none;
 }
+
+.divComentarios {
+    display: flex;
+    flex: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.comentario {
+    margin: 2rem;
+    background-color: #9cbf90;
+    border-radius: 0.6rem;
+    width: 80%;
+    height: 10rem;
+}

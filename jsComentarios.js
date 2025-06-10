@@ -6,6 +6,7 @@ function criarComentario() {
 
     if (usuario == "Rodrigo" || usuario == "rodrigo" || usuario == "Suess" || usuario == "Rodrigo Suess") {
         // colocar imagem do rodrigo
+
     }
 
     if (usuario != "" && comentario != "") {
