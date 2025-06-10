@@ -12,12 +12,20 @@ body {
     justify-content: space-evenly;
 }
 
-img{
-    height: 100%;
-    width: 20%;
-}
-
 .texto{
     width: 60%;
     font-size: 24px;
+}
+
+.imagemComLink {
+    width: 20rem;
+}
+
+.imagemComLink img {
+    width: 80%;
+}
+
+.imagem {
+    width: 25rem;
+    height: 25rem;
 }
