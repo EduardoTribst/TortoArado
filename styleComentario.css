@@ -17,11 +17,7 @@
     gap: 10px;
 }
 
-button{
+.btnEnviar{
     margin: auto;
     width: 20%;
-}
-
-h1{
-    font-size: larger;
 }
