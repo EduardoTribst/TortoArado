@@ -1,0 +1,17 @@
+{
+  "name": "tortoarado",
+  "version": "1.0.0",
+  "description": "Métodos POST e GET de posts dos usuários",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "type": "module"
+}
