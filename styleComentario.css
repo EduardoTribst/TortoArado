@@ -35,6 +35,6 @@
     border-radius: 0.6rem;
 }
 
-.textAreaComentario {
+#textAreaComentario {
     resize: none;
 }
