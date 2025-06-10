@@ -13,7 +13,7 @@ export async function InsertPost(titulo,conteudo,autor) {
     })
 }
 
-export  async function CreateTable(){
+export  async function CreateTablePost(){
     openDB().then(db =>{
             db.exec(`
                 CREATE TABLE IF NOT EXISTS Post (

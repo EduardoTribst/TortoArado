@@ -1,10 +1,11 @@
 import { openDB } from "./configDB.js";
-import { SelectPost } from "./Controllers/Post.js";
+import { CreateTablePost, SelectPost } from "./Controllers/Post.js";
 import { InsertPost } from "./Controllers/Post.js";
 import { InserirComentario } from "./Controllers/Comentario.js";
 import { SelecionarComentarioPost } from "./Controllers/Comentario.js";
 import { CreateTableComentario } from "./Controllers/Comentario.js";
 import { CreateTableLike, SelecionarQuantidadeLikes } from "./Controllers/Likes.js";
+import {CreateTablePost} from "./Controllers/Post.js";
 import { InserirLike } from "./Controllers/Likes.js";
 import { DiminuirLike } from "./Controllers/Likes.js";
 import express from "express";
@@ -98,6 +99,9 @@ app.get("/Post/Selecionar", async (req, res) => {
 
 app.get("/", (req, res) => {
     res.send("Api aberta com sucesso!");
+    CreateTableComentario();
+    CreateTablePost();
+    CreateTableLike();
 }
 );
 
