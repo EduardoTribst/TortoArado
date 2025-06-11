@@ -83,7 +83,7 @@ async function carregarComentarios() {
                 break;
         }
 
-        if (usuario == "Rodrigo" || usuario == "rodrigo" || usuario == "Suess" || usuario == "Rodrigo Suess") {
+        if (comentario.autor == "Rodrigo" || comentario.autor == "rodrigo" || comentario.autor == "Suess" || comentario.autor == "Rodrigo Suess") {
             imagemAvatar = "Imagens/rodrigo.jfif"; // Imagem do Rodrigo Suess
         }
 
