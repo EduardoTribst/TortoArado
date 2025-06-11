@@ -9,11 +9,6 @@ async function criarComentario() {
     var titulo = document.getElementById("titulo").value;
     var comentario = document.getElementById("textAreaComentario").value;
 
-    if (usuario == "Rodrigo" || usuario == "rodrigo" || usuario == "Suess" || usuario == "Rodrigo Suess") {
-        // colocar imagem do rodrigo
-
-    }
-
     if (usuario != "" && comentario != "" && titulo != "") {
         var comentarioObj = {
             autor: usuario,
@@ -65,13 +60,43 @@ async function carregarComentarios() {
 
     comentarios.forEach(comentario => {
 
-        atualizarContagemVotos(comentario.id, document.getElementById("totalCountPost" + comentario.id));
+        // sorteia um numero aleatorio entre 0 e 4
+        var numeroAleatorio = Math.floor(Math.random() * 5);
+
+        var imagemAvatar = "Imagens/zazu.jpg"; // Imagem padrão
+
+        switch (numeroAleatorio) {
+            case 0:
+                imagemAvatar = "Imagens/zazu.jpg";
+                break;
+            case 1:
+                imagemAvatar = "Imagens/zazuBigode.jpg";
+                break;
+            case 2:
+                imagemAvatar = "Imagens/zazuOlharDeMilJardas.png";
+                break;
+            case 3:
+                imagemAvatar = "Imagens/zazuPlanta.jpg";
+                break;
+            case 4:
+                imagemAvatar = "Imagens/zazuSol.png";
+                break;
+        }
+
+        if (usuario == "Rodrigo" || usuario == "rodrigo" || usuario == "Suess" || usuario == "Rodrigo Suess") {
+            imagemAvatar = "Imagens/rodrigo.jfif"; // Imagem do Rodrigo Suess
+        }
 
         divComentarios.innerHTML += `
             <div class="comentario">
-                <h2>
-                    <span class="nomeUsuario">${comentario.autor}</span>
-                </h2>
+                <div class="avatarComentario">
+
+                    <img src="${imagemAvatar}" alt="Avatar do usuário" class="avatarUsuario">
+
+                    <h2>
+                        <span class="nomeUsuario">${comentario.autor}</span>
+                    </h2>
+                </div>
 
                 <div class="corpoComentario">
                     <h3>
@@ -92,6 +117,8 @@ async function carregarComentarios() {
                 </div>
             </div>
             `
+
+            atualizarContagemVotos(comentario.id, document.getElementById("totalCountPost" + comentario.id));
     });
 }
 
