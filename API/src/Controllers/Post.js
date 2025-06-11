@@ -1,4 +1,5 @@
 import { openDB } from "../configDB.js";
+import { InserirLike } from "./Likes.js";
 
 export async function SelectPost() {
     return openDB().then(db=>{
@@ -10,6 +11,7 @@ export async function SelectPost() {
 export async function InsertPost(titulo,conteudo,autor) {
     openDB().then(db => {
         db.run("INSERT INTO Post (titulo, conteudo, autor) VALUES (?, ?, ?)", titulo, conteudo,autor);
+        db.run("INSERT INTO LikesPost (postId, quantidade) VALUES ((SELECT last_insert_rowid()), 0)")
     })
 }
 
