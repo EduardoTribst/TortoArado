@@ -166,7 +166,7 @@ async function votar(idPost, voto) {
 
 async function votarComentario(idPost, voto) {
     if (voto == true) {
-        await fetch(urlBase + "Likes/Adicionar/:" + idPost, {
+        await fetch(urlBase + "Likes/Adicionar/" + idPost, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -174,7 +174,7 @@ async function votarComentario(idPost, voto) {
         })
     }
     else if (voto == false) {
-        await fetch(urlBase + "Likes/Diminuir/:" + idPost, {
+        await fetch(urlBase + "Likes/Diminuir/" + idPost, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -184,7 +184,7 @@ async function votarComentario(idPost, voto) {
 }
 
 async function atualizarContagemVotos(idPost) {
-    const response = await fetch(urlBase + "Likes/Selecionar/:" + idPost);
+    const response = await fetch(urlBase + "Likes/Selecionar/" + idPost);
     const votos = await response.json();
     var totalCount = document.getElementById("totalCountPost" + idPost);
     totalCount.innerHTML = votos.quantidade;
