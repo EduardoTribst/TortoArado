@@ -74,7 +74,7 @@ app.get("/Comentario/Selecionar/:idPost", async (req, res) => {
     }
 })
 
-//Post
+
 app.post("/Post/Criar",(req,res)=>{
     try{
         var titulo = req.body.titulo
