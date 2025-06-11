@@ -2,6 +2,7 @@ html {
     background-color: beige;
     height: 100%;
 }
+
 body {
     margin: 0;
 }
@@ -12,13 +13,15 @@ main {
     align-items: center;
 }
 
-.ladoALado{
+.ladoALado {
     margin-top: 2rem;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.texto{
+.texto {
     width: 60%;
     font-size: 24px;
 }
@@ -43,16 +46,42 @@ main {
     font-size: 1.2rem;
 }
 
-.ficha ul {
-    margin-left: 3rem;
-}
-
+.ficha ul,
 .ficha ol {
     margin-left: 3rem;
 }
 
-
-.textoSoneto{
+.textoSoneto {
     width: 40%;
     font-size: 24px;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .ladoALado {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .texto,
+    .textoSoneto,
+    .ficha {
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .imagemComLink,
+    .imagem {
+        width: 90%;
+        height: auto;
+    }
+
+    .texto,
+    .textoSoneto {
+        font-size: 18px;
+    }
+
+    .ficha {
+        font-size: 1rem;
+    }
 }

@@ -1,4 +1,4 @@
-#div{
+#div {
     background-color: rgb(158, 137, 105);
     width: 40%;
     height: 15rem;
@@ -12,13 +12,15 @@
     border: 2px black solid;
 }
 
-.divnadiv{
+.divnadiv {
     margin: auto;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.btnEnviar{
+.btnEnviar {
     border: 1px black solid;
     display: inline-block; 
     padding: 8px 16px;
@@ -37,6 +39,8 @@
 
 #textAreaComentario {
     resize: none;
+    width: 100%;
+    font-size: 1rem;
 }
 
 #divComentarios {
@@ -52,10 +56,7 @@
     background-color: #9cbf90;
     border-radius: 0.6rem;
     width: 100%;
-    padding-left: 2rem;
-    padding-bottom: 2rem;
-    padding-top: 1rem;
-    padding-right: 2rem;
+    padding: 1rem 2rem;
     border: 2px solid black;
 }
 
@@ -72,6 +73,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: space-between;
 }
 
 .botaoVoto {
@@ -126,4 +128,44 @@
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+/* Estilos responsivos para celulares */
+@media (max-width: 768px) {
+    #div {
+        width: 90%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .btnEnviar {
+        font-size: 18px;
+        padding: 6px 12px;
+    }
+
+    #divComentarios {
+        width: 90%;
+    }
+
+    .comentario {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .corpoComentario {
+        font-size: 1rem;
+    }
+
+    .contagemVoto {
+        font-size: 16px;
+    }
+
+    .botaoVoto {
+        font-size: 20px;
+    }
+
+    .avatarUsuario {
+        width: 40px;
+        height: 40px;
+    }
 }
