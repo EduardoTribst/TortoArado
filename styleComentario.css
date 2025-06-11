@@ -51,6 +51,16 @@
     margin: 2rem;
     background-color: #9cbf90;
     border-radius: 0.6rem;
-    width: 80%;
-    height: 10rem;
+    width: 70%;
+    height: fit-content;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-right: 2rem;
+}
+
+.likesPost {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
