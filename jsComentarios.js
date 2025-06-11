@@ -40,9 +40,27 @@ async function carregarComentarios() {
     const response = await fetch(urlBase + "Post/Selecionar");
     const comentarios = await response.json();
 
-
-
     var divComentarios = document.getElementById("divComentarios");
+
+    if (comentarios.length == 0) {
+        divComentarios.innerHTML = "<p>Nenhum comentário encontrado.</p>";
+        return;
+    }
+
+    // ordena comentarios pela quantidade de votos
+    var likesDeCadaPost = {};
+
+    for (let comentario of comentarios) {
+        const response = await fetch(urlBase + "Likes/Selecionar/:" + comentario.id);
+        const votos = await response.json();
+        likesDeCadaPost[comentario.id] = votos.quantidade;
+    }
+
+    comentarios.sort((a, b) => {
+        return likesDeCadaPost[b.id] - likesDeCadaPost[a.id];
+    }
+    );
+
     divComentarios.innerHTML = ""; // Limpa a lista antes de adicionar novos comentários
 
     comentarios.forEach(comentario => {
@@ -80,17 +98,46 @@ async function carregarComentarios() {
 async function votar(idPost, voto) {
     var botaoUpvote = document.getElementById("btnUpvotePost" + idPost);
     var botaoDownvote = document.getElementById("btnDownvotePost" + idPost);
-    
-    // apenas um voto por vez
-    if (voto == true) {
-        botaoUpvote.classList.toggle('ativoUpvote', true);
-        botaoDownvote.classList.toggle('ativoDownvote', false);
-    } else if (voto == false) {
+
+    // Verifica se o botão já está ativo
+    if (botaoUpvote.classList.contains('ativoUpvote') && voto == true) {
         botaoUpvote.classList.toggle('ativoUpvote', false);
+        // Cancela o upvote, subtrai um voto
+        await votarComentario(idPost, false); // Remove o voto positivo
+        await atualizarContagemVotos(idPost);
+        return;
+    } else if (botaoDownvote.classList.contains('ativoDownvote') && voto == false) {
+        botaoDownvote.classList.toggle('ativoDownvote', false);
+        // Cancela o downvote, soma um voto
+        await votarComentario(idPost, true); // Remove o voto negativo
+        await atualizarContagemVotos(idPost);
+        return;
+    }
+
+    // Troca de voto
+    if (voto == true) {
+        if (botaoDownvote.classList.contains('ativoDownvote')) {
+            botaoDownvote.classList.toggle('ativoDownvote', false);
+            // Remove downvote antes de adicionar upvote
+            await votarComentario(idPost, true);
+        }
+        botaoUpvote.classList.toggle('ativoUpvote', true);
+    } else if (voto == false) {
+        if (botaoUpvote.classList.contains('ativoUpvote')) {
+            botaoUpvote.classList.toggle('ativoUpvote', false);
+            // Remove upvote antes de adicionar downvote
+            await votarComentario(idPost, false);
+        }
         botaoDownvote.classList.toggle('ativoDownvote', true);
     }
     
+    // Realiza a votação
+    await votarComentario(idPost, voto);
 
+    await atualizarContagemVotos(idPost);
+}
+
+async function votarComentario(idPost, voto) {
     if (voto == true) {
         await fetch(urlBase + "Likes/Adicionar/:" + idPost, {
             method: "POST",
@@ -107,8 +154,6 @@ async function votar(idPost, voto) {
             }
         })
     }
-
-    await atualizarContagemVotos(idPost);
 }
 
 async function atualizarContagemVotos(idPost) {
