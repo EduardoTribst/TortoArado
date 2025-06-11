@@ -46,7 +46,12 @@ async function carregarComentarios() {
     var likesDeCadaPost = {};
 
     for (let comentario of comentarios) {
-        const response = await fetch(urlBase + "Likes/Selecionar/:" + comentario.id);
+        const response = await fetch(urlBase + "Likes/Selecionar/" + comentario.id);
+        if (!response.ok) {
+            console.error("Erro ao buscar votos:", response.status);
+            return;
+        }
+
         const votos = await response.json();
         likesDeCadaPost[comentario.id] = votos.quantidade;
     }
@@ -174,7 +179,8 @@ async function votarComentario(idPost, voto) {
         })
     }
     else if (voto == false) {
-        await fetch(urlBase + "Likes/Diminuir/" + idPost, {
+        var url = urlBase + "Likes/Diminuir/" + idPost
+        await fetch(url, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -185,6 +191,10 @@ async function votarComentario(idPost, voto) {
 
 async function atualizarContagemVotos(idPost) {
     const response = await fetch(urlBase + "Likes/Selecionar/" + idPost);
+    if (!response.ok) {
+        console.error("Erro ao buscar votos:", response.status);
+        return;
+    }
     const votos = await response.json();
     var totalCount = document.getElementById("totalCountPost" + idPost);
     totalCount.innerHTML = votos.quantidade;
