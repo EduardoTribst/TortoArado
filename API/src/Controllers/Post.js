@@ -12,7 +12,11 @@ export async function InsertPost(titulo,conteudo,autor) {
     openDB().then(db => {
         db.run("INSERT INTO Post (titulo, conteudo, autor) VALUES (?, ?, ?)", titulo, conteudo,autor);
         db.run("INSERT INTO LikesPost (postId, quantidade) VALUES ((SELECT last_insert_rowid()), 0)")
-    })
+    }).then(() => {
+        console.log("Post inserted successfully.");
+    }).catch(err => {
+        console.error("Error inserting post:", err);
+    });
 }
 
 export  async function CreateTablePost(){
