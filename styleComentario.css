@@ -73,3 +73,42 @@
     flex-direction: row;
     width: 100%;
 }
+
+.botaoVoto {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.botaoVoto:hover {
+    background-color: #aca4a4;
+}
+
+.upvote:hover {
+    color: green;
+}
+
+.downvote:hover {
+    color: red;
+}
+
+.contagemVoto {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.ativoUpvote {
+    color: green;
+    background-color: #aca4a4;
+}
+
+.ativoDownvote {
+    color: red;
+    background-color: #aca4a4;
+}

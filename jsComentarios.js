@@ -46,6 +46,9 @@ async function carregarComentarios() {
     divComentarios.innerHTML = ""; // Limpa a lista antes de adicionar novos comentários
 
     comentarios.forEach(comentario => {
+
+        atualizarContagemVotos(comentario.id, document.getElementById("totalCountPost" + comentario.id));
+
         divComentarios.innerHTML += `
             <div class="comentario">
                 <h2>
@@ -63,13 +66,54 @@ async function carregarComentarios() {
                 </div>
                 
                 <div class="likesPost">
-                    <button class="botaoVoto upvote" id="btnUpvotePost${comentario.id}" aria-label="Upvote">▲</button>
+                    <button class="botaoVoto upvote" id="btnUpvotePost${comentario.id}" aria-label="Upvote" onclick="votar(${comentario.id}, true)">▲</button>
 
                     <div class="contagemVoto" id="totalCountPost${comentario.id}">0</div>
 
-                    <button class="botaoVoto downvote" id="btnDownVotePost${comentario.id}" aria-label="Downvote">▼</button>
+                    <button class="botaoVoto downvote" id="btnDownvotePost${comentario.id}" aria-label="Downvote" onclick="votar(${comentario.id}, false)">▼</button>
                 </div>
             </div>
             `
     });
+}
+
+async function votar(idPost, voto) {
+    var botaoUpvote = document.getElementById("btnUpvotePost" + idPost);
+    var botaoDownvote = document.getElementById("btnDownvotePost" + idPost);
+    
+    // apenas um voto por vez
+    if (voto == true) {
+        botaoUpvote.classList.toggle('ativoUpvote', true);
+        botaoDownvote.classList.toggle('ativoDownvote', false);
+    } else if (voto == false) {
+        botaoUpvote.classList.toggle('ativoUpvote', false);
+        botaoDownvote.classList.toggle('ativoDownvote', true);
+    }
+    
+
+    if (voto == true) {
+        await fetch(urlBase + "Likes/Adicionar/:" + idPost, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    }
+    else if (voto == false) {
+        await fetch(urlBase + "Likes/Diminuir/:" + idPost, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    }
+
+    await atualizarContagemVotos(idPost);
+}
+
+async function atualizarContagemVotos(idPost) {
+    const response = await fetch(urlBase + "Likes/Selecionar/:" + idPost);
+    const votos = await response.json();
+    var totalCount = document.getElementById("totalCountPost" + idPost);
+    totalCount.innerHTML = votos.quantidade;
 }
