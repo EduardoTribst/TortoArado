@@ -4,8 +4,7 @@ import { InsertPost } from "./Controllers/Post.js";
 import { InserirComentario } from "./Controllers/Comentario.js";
 import { SelecionarComentarioPost } from "./Controllers/Comentario.js";
 import { CreateTableComentario } from "./Controllers/Comentario.js";
-import { CreateTableLike, SelecionarQuantidadeLikes } from "./Controllers/Likes.js";
-import {CreateTablePost} from "./Controllers/Post.js";
+import { CreateTableLike, SelecionarQuantidadeLikes } from "./Controllers/Likes.js"; 
 import { InserirLike } from "./Controllers/Likes.js";
 import { DiminuirLike } from "./Controllers/Likes.js";
 import express from "express";
@@ -106,6 +105,11 @@ app.get("/", (req, res) => {
 );
 
 openDB();
+CreateTableComentario();
+CreateTablePost();
+CreateTableLike();
+
+start();
 
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
