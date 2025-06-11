@@ -7,11 +7,12 @@ import { CreateTableComentario } from "./Controllers/Comentario.js";
 import { CreateTableLike, SelecionarQuantidadeLikes } from "./Controllers/Likes.js"; 
 import { InserirLike } from "./Controllers/Likes.js";
 import { DiminuirLike } from "./Controllers/Likes.js";
+import cors from "cors";
 import express from "express";
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 
 app.patch("/Likes/Diminuir/:idPost", async (req, res) => {
     try{
