@@ -1,6 +1,6 @@
 quantos = 0
 function Clicou() {
-    if (quantos > 10){
+    if (quantos > 30){
         valor = Math.floor(Math.random() * 101);
         if (valor == 100){
             document.getElementById("foto").src = "Imagens/rodrigoLendaria.jpg"; //Foto épica
@@ -34,10 +34,8 @@ function Clicou() {
             document.getElementById("foto").src = "Imagens/noobPerdeuGamble.jfif";
             
         }
-        
-        quantos = -1
     }
-    if (quantos == 0){
+    if (quantos % 2 == 1){
         document.getElementById("foto").src = "Imagens/ItamarVieiraJunior.jpg";
     }
 
