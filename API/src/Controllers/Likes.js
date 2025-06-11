@@ -33,6 +33,11 @@ export async function CreateTableLike() {
         quantidade INTEGER NOT NULL,
         FOREIGN KEY (postId) REFERENCES Post(id)
       )
-    `);
-    });
+    `).then(() => {
+            console.log("LikesPost table created successfully.");
+        }).catch(err => {
+            console.error("Error creating LikesPost table:", err);
+            })
+    }
+);
 }
