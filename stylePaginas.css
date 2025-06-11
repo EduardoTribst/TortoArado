@@ -35,3 +35,19 @@ main {
     width: 25rem;
     height: 25rem;
 }
+
+.ficha {
+    margin-left: 4rem;
+    margin-top: 2rem;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+.ficha ul {
+    margin-left: 3rem;
+}
+
+.ficha ol {
+    margin-left: 3rem;
+}
+
