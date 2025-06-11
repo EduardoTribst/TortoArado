@@ -3,68 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Arvore genealogica | Torto Arado</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylePaginas.css">
+    <link rel="stylesheet" href="styleHeader.css">
 </head>
 <body>
-    <div class="tree">
-        <ul>
+    <header class="divHeader">
+            <button class="btnVoltar hoverBotao" onclick="redirecionar('index.html')" style=" font-size: 40px;">←</button>
+
+            <div class="divTitulo">
+                <h1>Árvore genelógica</h1>
+            </div>
+    
+            <div class="divImagensHeader">
+                <a href="https://cotuca.unicamp.br/"><img src="imagens/logoCotuca.png" alt="logoCotuca" class="imagensHeader"></a>
+                <a href="https://unicamp.br/"><img src="imagens/logoUnicamp.png" alt="logoUnicamp" class="imagensHeader"></a>
+            </div>
+    </header>
+
+    <div class="ladoALado">
+        <div class="texto" style="width: 35%; margin-right: -10rem; margin-left: -10rem;">
+            <p>
+                A árvore genealógica de Torto Arado é uma representação visual das relações familiares dos personagens principais, 
+                Bibiana e Belonísia. Ela ilustra a complexa rede de laços familiares que permeia a narrativa, destacando as 
+                conexões entre os membros da família e suas histórias individuais. 
+                <br><br>
+                A árvore inclui personagens como Donana, 
+                mãe de Bibiana e Belonísia, e Tobias, o pai falecido, além de outros parentes que desempenham papéis importantes 
+                na vida das protagonistas. 
+                <br><br>
+                Essa estrutura ajuda a entender as dinâmicas familiares e as influências que moldam 
+                as vidas das irmãs ao longo do romance.
+            </p>
+        </div>
+        
+        <div class="tree">
+      <ul>
         <li>
             <div class="family">
                 <div class="person child male">
                     <div class="name">VÔ</div>
                 </div>
-            <div class="parent">
-              <div class="person female">
-                <div class="name">Donana</div>
+              <div class="parent">
+                <div class="person female">
+                  <div class="name">Donana</div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="family" style="width: 172px">
+                      <div class="person child female">
+                        <div class="name">Belonísia</div>
+                      </div>
+                      <div class="parent">
+                        <div class="person male">
+                          <div class="name">TOBIAS FALECIDO</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="family" style="width: 344px">
+                      <div class="person child female">
+                        <div class="name">Bibiana</div>
+                      </div>
+                      <div class="parent">
+                        <div class="person male">
+                          <div class="name">Severo</div>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="person child male">
+                              <div class="name">FILHO</div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="person child female">
+                              <div class="name">Filha</div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="person child female">
+                              <div class="name">Filha</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <ul>
-                <li>
-                  <div class="family" style="width: 172px">
-                    <div class="person child female">
-                      <div class="name">Belonísia</div>
-                    </div>
-                    <div class="parent">
-                      <div class="person male">
-                        <div class="name">TOBIAS FALECIDO</div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="family" style="width: 344px">
-                    <div class="person child female">
-                      <div class="name">Bibiana</div>
-                    </div>
-                    <div class="parent">
-                      <div class="person male">
-                        <div class="name">Severo</div>
-                      </div>
-                      <ul>
-                        <li>
-                          <div class="person child male">
-                            <div class="name">FILHO</div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="person child female">
-                            <div class="name">Filha</div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="person child female">
-                            <div class="name">Filha</div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
             </div>
-            </div>
-        </li>
+          </li>
         </ul>
-        </div>
+      </div>
+        
+    </div>
+    
+    <script src="jsRedirecionar.js"></script>
 </body>
 </html>
