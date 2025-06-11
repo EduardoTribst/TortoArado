@@ -99,9 +99,6 @@ app.get("/Post/Selecionar", async (req, res) => {
 
 app.get("/", (req, res) => {
     res.send("Api aberta com sucesso!");
-    CreateTableComentario();
-    CreateTablePost();
-    CreateTableLike();
 }
 );
 
