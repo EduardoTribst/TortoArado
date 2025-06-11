@@ -28,8 +28,16 @@
                 <label>Usuário:</label>
                 <input type="text" id="user" placeholder="Digite um nome de usuário">
             </div>
+
+            <br>
+
+            <div class="divnadiv">
+                <label>Título:</label>
+                <input type="text" id="titulo" placeholder="Digite um título">
+            </div>
             
             <br>
+
             <div class="divnadiv">
                 <label>Comentário:</label>
                 <textarea id="textAreaComentario" rows="6" cols="40" placeholder="Escreva seu comentário"></textarea>
@@ -38,31 +46,31 @@
             <button class="btnEnviar hoverBotao" onclick="criarComentario()">Enviar</button>
         </div>
         
-        <div class="divComentarios">
-            <div class="comentario">
-                <h3>
-                    Rodrigo
-                </h3>
+        <div id="divComentarios">
+            <!-- <div class="comentario">
+                <h2>
+                    <span class="nomeUsuario">Usuário1</span>
+                </h2>
 
-                <p>
-                    muito bom pessoal
-                </p>
+                <div class="corpoComentario">
+                    <h3>
+                        <span class="tituloComentario">Titulo</span>
+                    </h3>
+
+                    <p class="textoComentario">
+                        muito bom pessoal
+                    </p>
+                </div>
 
                 <div class="likesPost">
                     <button class="botaoVoto upvote" id="btnUpvotePost1" aria-label="Upvote">▲</button>
 
-                    <div class="contagemVoto" id="upCount">0</div>
+                    <div class="contagemVoto" id="totalCountPost1">0</div>
 
-                    <div class="contagemVoto" id="totalCount">0</div>
-
-                    <div class="contagemVoto down-count" id="downCount">0</div>
-
-                    <button class="botaoVoto downvote" aria-label="Downvote">▼</button>
+                    <button class="botaoVoto downvote" aria-label="DownvotePost1">▼</button>
                 </div>
-            </div>
+            </div> -->
         </div>
-
-        
     </main>
     
     <script src="jsRedirecionar.js"></script>
